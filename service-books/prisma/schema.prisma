@@ -9,3 +9,82 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Book {
+  id            String      @id @default(cuid())
+  Type          BookType?   @relation(fields: [book_type], references: [type])
+  book_type     String?
+  title         String      @unique
+  sub_title     String?
+  description   String?
+  category      Category[]
+  tags          Json?
+  author        String
+  translator    String?
+  publisher     String?
+  isbn          String?
+  Rating        Rating?     @relation(fields: [rating], references: [rating])
+  rating        String?
+  cover_img_url String?
+  sub_img_url   String?
+  published_at  DateTime
+  viewed        Int?
+  chapters      Int?
+  comments      Int?
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+  BookStatus    BookStatus? @relation(fields: [book_status], references: [status])
+  book_status   String?
+}
+
+model BookType {
+  id         Int      @id @default(autoincrement())
+  type       String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Books      Book[]
+}
+
+model BookStatus {
+  id         Int      @id @default(autoincrement())
+  status     String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Books      Book[]
+}
+
+model Category {
+  id         Int      @id @default(autoincrement())
+  category   String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Books      Book[]
+}
+
+model File {
+  id           String   @id @default(cuid())
+  Type         FileType @relation(fields: [file_type_id], references: [id])
+  file_type_id String
+  name         String
+  url          String
+  size         Int
+  mime_type    String
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+}
+
+model FileType {
+  id         String   @id @default(cuid())
+  type       String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  File       File[]
+}
+
+model Rating {
+  id         Int      @id @default(autoincrement())
+  rating     String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Books      Book[]
+}
