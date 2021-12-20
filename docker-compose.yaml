@@ -1,0 +1,64 @@
+version: "3.8"
+
+services:
+  service-books-dev:
+    depends_on:
+      - service-books-db
+    container_name: service_books_dev
+    image: service-books-dev:0.0.1
+    build:
+      context: ./service-books
+      target: development
+      dockerfile: ./Dockerfile
+    command: npm run start:debug
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://postgres:JU8krDDCB8XKjgX@service-books-db:5432/books_dev
+      PORT: 3000
+      LOCAL_ENV: 1 # this is for local development to access prisma on container
+    ports:
+      - 3000:3000
+    networks:
+      - services-internal
+    volumes:
+      - service-books-vol:/usr/src/app
+    restart: unless-stopped
+  #   service-books-prod:
+  #     depends_on:
+  #       - service-books-db
+  #     container_name: service_books_prod
+  #     image: service-books-prod:0.0.1
+  #     build:
+  #       context: ./service-books
+  #       target: production
+  #       dockerfile: ./Dockerfile
+  #     command: npm run start:prod
+  #     ports:
+  #       - 3000:3000
+  #     networks:
+  #       - services-internal
+  #     volumes:
+  #       - service-books-vol:/usr/src/app
+  #     restart: unless-stopped
+
+  service-books-db:
+    container_name: service_books_db
+    image: postgres:13.5-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: JU8krDDCB8XKjgX
+      POSTGRES_DB: books_dev
+    ports:
+      - 5432:5432
+    networks:
+      - services-internal
+    volumes:
+      - service-books-db-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+
+networks:
+  services-internal:
+
+volumes:
+  service-books-vol:
+  service-books-db-vol:
