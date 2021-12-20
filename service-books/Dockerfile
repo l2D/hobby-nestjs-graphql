@@ -1,4 +1,8 @@
-FROM node:16-alpine3.12 AS development
+FROM node:16.13.1-slim AS development
+
+RUN apt-get update
+
+RUN apt-get install -y openssl
 
 WORKDIR /usr/src/app
 
@@ -10,9 +14,11 @@ RUN npm install
 
 COPY . .
 
+RUN npx prisma generate
+
 RUN npm run build
 
-FROM node:16-alpine3.12 as production
+FROM node:16.13.1-slim as production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
