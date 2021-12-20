@@ -1,25 +1,42 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: 'tsconfig.json',
-    tsconfigRootDir: __dirname,
-    sourceType: 'module',
-  },
-  plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
-  root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
-  ignorePatterns: ['.eslintrc.js'],
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
+    'no-underscore-dangle': 0,
+    'require-await': 'error',
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'single', 'multiple'],
+      },
+    ],
+    'prettier/prettier': ['error', { singleQuote: true }],
+    'import/prefer-default-export': 0,
+    'import/no-useless-path-segments': [
+      'error',
+      {
+        noUselessIndex: true,
+      },
+    ],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          ['builtin', 'external', 'internal'],
+          ['sibling', 'index'],
+          'parent',
+        ],
+        'newlines-between': 'always',
+      },
+    ],
+    'import/no-cycle': 0,
+  },
+  ignorePatterns: ['dist'],
+  env: {
+    es6: true,
+    jest: true,
+    node: true,
   },
 };
