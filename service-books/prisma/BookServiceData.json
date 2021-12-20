@@ -8,6 +8,9 @@
     },
     {
       "type": "Comic"
+    },
+    {
+      "type": "IT"
     }
   ],
   "Status": [
@@ -115,6 +118,41 @@
         }
       },
       "published_at": "2021-12-19T14:51:08Z"
+    },
+    {
+      "Type": {
+        "connect": {
+          "type": "IT"
+        }
+      },
+      "title": "Monitored scalable encoding",
+      "sub_title": "I'll quantify the neural RSS matrix, that should monitor the GB transmitter!",
+      "description": "TLDR; I'll not fill this column because it's too long. XD",
+      "category": {
+        "connect": {
+          "category": "Science Fiction"
+        }
+      },
+      "tags": ["Best", "Great", "Good"],
+      "author": "l2D",
+      "translator": "whoami",
+      "publisher": "whoami",
+      "isbn": "SGksIFlvdSBmb3VuZCBpdC4gLyheLV4pXA==",
+      "Rating": {
+        "connect": {
+          "rating": "15+"
+        }
+      },
+      "cover_img_url": "https://lorempixel.com/640/480/technics",
+      "viewed": 100,
+      "comments": 20,
+      "chapters": 1,
+      "BookStatus": {
+        "connect": {
+          "status": "In Progress"
+        }
+      },
+      "published_at": 3286956868000
     }
   ]
 }
