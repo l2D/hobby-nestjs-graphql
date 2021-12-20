@@ -61,25 +61,25 @@ model Category {
   Books      Book[]
 }
 
-model File {
-  id           String   @id @default(cuid())
-  Type         FileType @relation(fields: [file_type_id], references: [id])
-  file_type_id String
-  name         String
-  url          String
-  size         Int
-  mime_type    String
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
-}
+// model File {
+//   id           String   @id @default(cuid())
+//   Type         FileType @relation(fields: [file_type_id], references: [id])
+//   file_type_id String
+//   name         String
+//   url          String
+//   size         Int
+//   mime_type    String
+//   created_at   DateTime @default(now())
+//   updated_at   DateTime @updatedAt
+// }
 
-model FileType {
-  id         String   @id @default(cuid())
-  type       String   @unique
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  File       File[]
-}
+// model FileType {
+//   id         String   @id @default(cuid())
+//   type       String   @unique
+//   created_at DateTime @default(now())
+//   updated_at DateTime @updatedAt
+//   File       File[]
+// }
 
 model Rating {
   id         Int      @id @default(autoincrement())

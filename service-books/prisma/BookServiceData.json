@@ -1,0 +1,120 @@
+{
+  "BookTypes": [
+    {
+      "type": "Fiction"
+    },
+    {
+      "type": "Novel"
+    },
+    {
+      "type": "Comic"
+    }
+  ],
+  "Status": [
+    {
+      "status": "Available"
+    },
+    {
+      "status": "In Progress"
+    },
+    {
+      "status": "Completed"
+    }
+  ],
+  "Category": [
+    {
+      "category": "Fantasy"
+    },
+    {
+      "category": "Science Fiction"
+    },
+    {
+      "category": "Romance"
+    }
+  ],
+  "Rating": [
+    {
+      "rating": "Normal"
+    },
+    {
+      "rating": "13+"
+    },
+    {
+      "rating": "15+"
+    }
+  ],
+  "Books": [
+    {
+      "Type": {
+        "connect": {
+          "type": "Fiction"
+        }
+      },
+      "title": "The Great Gatsby",
+      "sub_title": "The Great Gatsby",
+      "description": "The Great Gatsby is a 1925 novel written by American author F. Scott Fitzgerald that follows a cast of characters living in the fictional town of West Egg on prosperous Long Island in the summer of 1922. The story primarily concerns the young and mysterious millionaire Jay Gatsby and his quixotic passion for the beautiful Daisy Buchanan, who has moved into the house after the death of her husband, though it does not mention his later girlfriend, Eurydice.",
+      "category": {
+        "connect": {
+          "category": "Fantasy"
+        }
+      },
+      "tags": ["Best", "Great", "Good"],
+      "author": "F. Scott Fitzgerald",
+      "translator": "John Doe",
+      "publisher": "John Doe",
+      "isbn": "978-0-316-90767-0",
+      "Rating": {
+        "connect": {
+          "rating": "Normal"
+        }
+      },
+      "cover_img_url": "http://placeimg.com/640/480/any",
+      "sub_img_url": "http://placeimg.com/640/480/any",
+      "viewed": 100,
+      "comments": 20,
+      "chapters": 1,
+      "BookStatus": {
+        "connect": {
+          "status": "Available"
+        }
+      },
+      "published_at": "2021-12-19T14:51:08Z"
+    },
+    {
+      "Type": {
+        "connect": {
+          "type": "Fiction"
+        }
+      },
+      "title": "Gorgeous Frozen Chips",
+      "sub_title": "Gorgeous Frozen Chips",
+      "description": "Mollit veniam cillum aliqua do minim commodo voluptate nisi.",
+      "category": {
+        "connect": {
+          "category": "Science Fiction"
+        }
+      },
+      "tags": ["Best", "Great", "Good"],
+      "author": "Towne - Morar",
+      "translator": "John Doe",
+      "publisher": "John Doe",
+      "isbn": "978-0-316-90767-0",
+      "Rating": {
+        "connect": {
+          "rating": "15+"
+        }
+      },
+      "cover_img_url": "http://placeimg.com/640/480/any",
+      "sub_img_url": "http://placeimg.com/640/480/any",
+      "viewed": 100,
+      "comments": 20,
+      "chapters": 1,
+      "BookStatus": {
+        "connect": {
+          "status": "In Progress"
+        }
+      },
+      "published_at": "2021-12-19T14:51:08Z"
+    }
+  ]
+}
