@@ -126,33 +126,33 @@
         }
       },
       "title": "Monitored scalable encoding",
-      "sub_title": "I'll quantify the neural RSS matrix, that should monitor the GB transmitter!",
-      "description": "TLDR; I'll not fill this column because it's too long. XD",
+      "sub_title": "TLDR; I'll not fill this column because it's too long. XD",
+      "description": "R3JlZXRpbmcsIFlvdSBmb3VuZCBpdC4KClRoYW5rIHlvdSBmb3IgcmV2aWV3aW5nIHRoaXMuIAoKSG9wZSB5b3UgYXJlIG5vdCB1cHNldCB3aXRoIHRoaXMgbW9jayBwcm9qZWN0LgpJJ3ZlIGdvdCBhIGxpdHRsZSB0aW1lIHRvIHRyeSBvdXQgbmV3IHRvb2xzIChOZXN0SlMsIEdyYXBoUUwpIChUVF9UVCkKClNpbmNlcmVseSwKbDJECgogLyheLV4pXA==",
       "category": {
         "connect": {
           "category": "Science Fiction"
         }
       },
-      "tags": ["Best", "Great", "Good"],
+      "tags": ["Quite introvert", "Love cats", "and Fat"],
       "author": "l2D",
       "translator": "whoami",
       "publisher": "whoami",
-      "isbn": "SGksIFlvdSBmb3VuZCBpdC4gLyheLV4pXA==",
+      "isbn": "01101100-00110010-01000100",
       "Rating": {
         "connect": {
           "rating": "15+"
         }
       },
-      "cover_img_url": "https://lorempixel.com/640/480/technics",
-      "viewed": 100,
-      "comments": 20,
+      "cover_img_url": "https://devhumor.com/content/uploads/images/March2020/salt.jpg",
+      "viewed": 0,
+      "comments": 0,
       "chapters": 1,
       "BookStatus": {
         "connect": {
           "status": "In Progress"
         }
       },
-      "published_at": 3286956868000
+      "published_at": "2021-12-21T10:00:00.000Z"
     }
   ]
 }
