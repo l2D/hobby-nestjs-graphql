@@ -1,0 +1,193 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Rating {
+  id: Int!
+  rating: String!
+  Books: [Book!]!
+  created_at: Timestamp!
+  updated_at: Timestamp!
+}
+
+"""
+`Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+"""
+scalar Timestamp
+
+type BookStatus {
+  id: Int!
+  status: String!
+  Books: [Book!]!
+  created_at: Timestamp!
+  updated_at: Timestamp!
+}
+
+type BookTypes {
+  id: Int!
+  type: String!
+  Books: [Book!]!
+  created_at: Timestamp!
+  updated_at: Timestamp!
+}
+
+type Book {
+  id: String!
+  type: BookTypes
+  title: String!
+
+  """Sub title of the book"""
+  sub_title: String
+
+  """Description of the book"""
+  description: String
+  tags: [String!]
+  author: String!
+
+  """Translator's name"""
+  translator: String
+
+  """Publisher's name"""
+  publisher: String
+
+  """ISBN of the book"""
+  isbn: String
+
+  """Rating of the book"""
+  rating: Rating
+  cover_img_url: String!
+  sub_img_url: String!
+  published_at: Timestamp!
+  viewed: Int!
+  chapters: Int!
+  comments: Int!
+  book_status: BookStatus!
+  created_at: Timestamp!
+  updated_at: Timestamp!
+}
+
+type Category {
+  id: Int!
+  category: String!
+  Books: [Book!]
+  created_at: Timestamp!
+  updated_at: Timestamp!
+}
+
+type Query {
+  """Get all books"""
+  allBooks: [Book!]!
+
+  """Get a book by id"""
+  bookById(id: String!): Book!
+
+  """Get a category by id"""
+  categoryById(id: Float!): Category!
+
+  """Get all categories"""
+  categories: [Category!]!
+
+  """Get a rating by id"""
+  ratingById(id: Float!): Rating!
+
+  """Get all ratings"""
+  ratings: [Rating!]!
+
+  """Get a category by id"""
+  bookTypesById(id: Float!): BookTypes!
+
+  """Get all book types"""
+  bookTypes: [BookTypes!]!
+
+  """Get a book status by id"""
+  bookStatusById(id: Float!): BookStatus!
+
+  """Get all book statuses"""
+  bookStatuses: [BookStatus!]!
+}
+
+type Mutation {
+  """Create a new book"""
+  createBook(data: BookCreateInput!): Book!
+
+  """Update a book"""
+  updateBook(data: BookUpdateInput!, id: String!): Book!
+
+  """Create a new category"""
+  createCategory(data: CategoryInput!): Category!
+
+  """Update a category"""
+  updateCategory(data: CategoryInput!, id: Float!): Category!
+
+  """Create a new rating"""
+  createRating(data: RatingInput!): Rating!
+
+  """Update a rating"""
+  updateRating(data: RatingInput!, id: Float!): Rating!
+
+  """Create a new book type"""
+  createBookType(data: BookTypesInput!): BookTypes!
+
+  """Update a book type"""
+  updateBookType(data: BookTypesInput!, id: Float!): BookTypes!
+
+  """Create a new book status"""
+  createBookStatus(data: BookStatusInput!): BookStatus!
+
+  """Update a book status"""
+  updateBookStatus(data: BookStatusInput!, id: Float!): BookStatus!
+}
+
+input BookCreateInput {
+  Type: String
+  title: String!
+  sub_title: String
+  description: String
+  category: [String!]
+  tags: [String!]
+  author: String!
+  translator: String
+  publisher: String
+  isbn: String
+  Rating: String
+  BookStatus: String
+  cover_img_url: String
+  sub_img_url: String
+  published_at: Timestamp!
+  viewed: Float
+  chapters: Float
+  comments: Float
+}
+
+input BookUpdateInput {
+  title: String
+  sub_title: String
+  description: String
+  tags: [String!]
+  author: String
+  translator: String
+  publisher: String
+  isbn: String
+  cover_img_url: String
+  sub_img_url: String
+  published_at: Timestamp
+  viewed: Float
+  chapters: Float
+  comments: Float
+}
+
+input CategoryInput {
+  category: String!
+}
+
+input RatingInput {
+  rating: String!
+}
+
+input BookTypesInput {
+  type: String!
+}
+
+input BookStatusInput {
+  status: String!
+}
