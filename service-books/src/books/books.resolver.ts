@@ -160,7 +160,6 @@ export class BookResolver {
 
   @Query(() => [Book], { description: `Get all books` })
   async allBooks(@Context() ctx) {
-    console.log(`ctx`, ctx);
     return this.prismaService.book.findMany();
   }
 
