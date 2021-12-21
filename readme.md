@@ -24,7 +24,7 @@
 		<img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white" />
 	</a>
 	<br />
-	<a href="https://wakatime.com/@l2D/projects/ubzfdufkff?start=2021-12-15&end=2021-12-21">
+	<a href="https://wakatime.com/@l2D/projects/ubzfdufkff?start=2021-12-15&end=2021-12-21" target="_blank">
 		<img src="https://wakatime.com/badge/user/40220765-21c2-45dd-9b0a-d3bf9e27e616/project/c506c223-7016-4d9c-a72a-d753f7ae23e4.svg?style=for-the-badge" />
 	</a>
 	<br /><br />
