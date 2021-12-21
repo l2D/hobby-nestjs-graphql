@@ -40,7 +40,7 @@ class BookCreateInput {
   description: string | null;
 
   @Field(() => [String], { nullable: true })
-  category?: string | null;
+  category?: string[] | null;
 
   @Field(() => [String], { nullable: true })
   tags?: string | null;
@@ -157,6 +157,17 @@ class BookUpdateInput {
 @Resolver(Book)
 export class BookResolver {
   constructor(@Inject(PrismaService) private prismaService: PrismaService) {}
+
+  @ResolveField()
+  async category(@Root() book: Book): Promise<Category[] | null> {
+    return this.prismaService.book
+      .findUnique({
+        where: {
+          id: book.id,
+        },
+      })
+      .category();
+  }
 
   @Query(() => [Book], { description: `Get all books` })
   async allBooks(@Context() ctx) {

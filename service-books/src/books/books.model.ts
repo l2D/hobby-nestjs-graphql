@@ -32,10 +32,11 @@ export class Book {
   @IsString()
   description?: string | null;
 
-  // @Field(() => [Category], {
-  //   description: `Book title`,
-  // })
-  // category: Category[];
+  @Field(() => [Category], {
+    nullable: true,
+    description: `Book title`,
+  })
+  category: Category[];
 
   @Field(() => [String], { nullable: true })
   @IsArray()
@@ -73,12 +74,12 @@ export class Book {
   })
   rating?: string | null;
 
-  @Field()
+  @Field(() => String, { nullable: true })
   @IsString()
   @IsUrl()
   cover_img_url?: string | null;
 
-  @Field()
+  @Field(() => String, { nullable: true })
   @IsString()
   @IsUrl()
   sub_img_url?: string | null;
@@ -86,16 +87,16 @@ export class Book {
   @Field(() => Date)
   published_at: Date;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   viewed?: number | null;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   chapters?: number | null;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   comments?: number | null;
 
-  @Field(() => BookStatus)
+  @Field(() => BookStatus, { nullable: true })
   book_status: string;
 
   @Field(() => Date)

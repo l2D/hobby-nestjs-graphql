@@ -2,10 +2,10 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Rating {
+type Category {
   id: Int!
-  rating: String!
-  Books: [Book!]!
+  category: String!
+  Books: [Book!]
   created_at: Timestamp!
   updated_at: Timestamp!
 }
@@ -14,6 +14,14 @@ type Rating {
 `Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
 """
 scalar Timestamp
+
+type Rating {
+  id: Int!
+  rating: String!
+  Books: [Book!]!
+  created_at: Timestamp!
+  updated_at: Timestamp!
+}
 
 type BookStatus {
   id: Int!
@@ -41,6 +49,9 @@ type Book {
 
   """Description of the book"""
   description: String
+
+  """Book title"""
+  category: [Category!]
   tags: [String!]
   author: String!
 
@@ -55,21 +66,13 @@ type Book {
 
   """Rating of the book"""
   rating: Rating
-  cover_img_url: String!
-  sub_img_url: String!
+  cover_img_url: String
+  sub_img_url: String
   published_at: Timestamp!
-  viewed: Int!
-  chapters: Int!
-  comments: Int!
-  book_status: BookStatus!
-  created_at: Timestamp!
-  updated_at: Timestamp!
-}
-
-type Category {
-  id: Int!
-  category: String!
-  Books: [Book!]
+  viewed: Int
+  chapters: Int
+  comments: Int
+  book_status: BookStatus
   created_at: Timestamp!
   updated_at: Timestamp!
 }
