@@ -13,7 +13,7 @@ export class Book {
   id: string;
 
   @Field(() => BookTypes, { nullable: true })
-  type?: string | null;
+  BookType?: BookTypes | null;
 
   @Field()
   title: string;
@@ -34,13 +34,13 @@ export class Book {
 
   @Field(() => [Category], {
     nullable: true,
-    description: `Book title`,
+    description: `Book's categories`,
   })
-  category: Category[];
+  category?: Category[] | null;
 
   @Field(() => [String], { nullable: true })
   @IsArray()
-  tags?: string[];
+  tags?: string[] | null;
 
   @Field()
   @IsString()
@@ -97,7 +97,7 @@ export class Book {
   comments?: number | null;
 
   @Field(() => BookStatus, { nullable: true })
-  book_status: string;
+  bookStatus: string;
 
   @Field(() => Date)
   created_at: Date;

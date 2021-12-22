@@ -13,7 +13,7 @@ export class Category {
   category: string;
 
   @Field(() => [Book], { nullable: true })
-  Books?: [Book];
+  Books?: Book[];
 
   @Field(() => Date)
   created_at: Date;

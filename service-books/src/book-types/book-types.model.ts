@@ -12,8 +12,8 @@ export class BookTypes {
   @IsString()
   type: string;
 
-  @Field(() => [Book])
-  Books: [Book];
+  @Field(() => [Book], { nullable: true })
+  Books?: Book[];
 
   @Field(() => Date)
   created_at: Date;

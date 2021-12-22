@@ -12,8 +12,8 @@ export class BookStatus {
   @IsString()
   status: string;
 
-  @Field(() => [Book])
-  Books: [Book];
+  @Field(() => [Book], { nullable: true })
+  Books?: Book[] | null;
 
   @Field(() => Date)
   created_at: Date;
