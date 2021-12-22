@@ -18,7 +18,7 @@ scalar Timestamp
 type Rating {
   id: Int!
   rating: String!
-  Books: [Book!]!
+  Books: [Book!]
   created_at: Timestamp!
   updated_at: Timestamp!
 }
@@ -26,7 +26,7 @@ type Rating {
 type BookStatus {
   id: Int!
   status: String!
-  Books: [Book!]!
+  Books: [Book!]
   created_at: Timestamp!
   updated_at: Timestamp!
 }
@@ -34,14 +34,14 @@ type BookStatus {
 type BookTypes {
   id: Int!
   type: String!
-  Books: [Book!]!
+  Books: [Book!]
   created_at: Timestamp!
   updated_at: Timestamp!
 }
 
 type Book {
   id: String!
-  type: BookTypes
+  BookType: BookTypes
   title: String!
 
   """Sub title of the book"""
@@ -50,7 +50,7 @@ type Book {
   """Description of the book"""
   description: String
 
-  """Book title"""
+  """Book's categories"""
   category: [Category!]
   tags: [String!]
   author: String!
@@ -72,17 +72,17 @@ type Book {
   viewed: Int
   chapters: Int
   comments: Int
-  book_status: BookStatus
+  bookStatus: BookStatus
   created_at: Timestamp!
   updated_at: Timestamp!
 }
 
 type Query {
   """Get all books"""
-  allBooks: [Book!]!
+  books: [Book!]!
 
   """Get a book by id"""
-  bookById(id: String!): Book!
+  getBook(id: String!): Book!
 
   """Get a category by id"""
   categoryById(id: Float!): Category!
@@ -97,7 +97,7 @@ type Query {
   ratings: [Rating!]!
 
   """Get a category by id"""
-  bookTypesById(id: Float!): BookTypes!
+  bookTypeById(id: Float!): BookTypes!
 
   """Get all book types"""
   bookTypes: [BookTypes!]!
@@ -142,7 +142,7 @@ type Mutation {
 }
 
 input BookCreateInput {
-  Type: String
+  type: String
   title: String!
   sub_title: String
   description: String
