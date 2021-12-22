@@ -5,13 +5,10 @@ import {
   Mutation,
   Args,
   Context,
-  ResolveField,
-  Root,
   InputType,
   Field,
 } from '@nestjs/graphql';
 import { Inject } from '@nestjs/common';
-import { Book } from '../books/books.model';
 import { PrismaService } from '../prisma/prisma.service';
 import { BookStatus } from './book-status.model';
 

@@ -5,13 +5,10 @@ import {
   Mutation,
   Args,
   Context,
-  ResolveField,
-  Root,
   InputType,
   Field,
 } from '@nestjs/graphql';
 import { Inject } from '@nestjs/common';
-import { Book } from '../books/books.model';
 import { PrismaService } from '../prisma/prisma.service';
 import { BookTypes } from './book-types.model';
 
@@ -21,12 +18,12 @@ class BookTypesInput {
   type: string;
 }
 
-@Resolver()
+@Resolver(BookTypes)
 export class BookTypesResolver {
   constructor(@Inject(PrismaService) private prismaService: PrismaService) {}
 
   @Query(() => BookTypes, { description: `Get a category by id` })
-  async bookTypesById(@Args('id') id: number) {
+  async bookTypeById(@Args('id') id: number) {
     const parsedId = parseInt(id.toString(), 10);
 
     return await this.prismaService.bookType.findUnique({
