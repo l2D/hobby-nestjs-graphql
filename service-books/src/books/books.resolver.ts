@@ -28,7 +28,7 @@ import { PrismaService } from '../prisma/prisma.service';
 @InputType()
 class BookCreateInput {
   @Field(() => String, { nullable: true })
-  Type?: string | null;
+  type?: string | null;
 
   @Field()
   title: string;
@@ -43,7 +43,7 @@ class BookCreateInput {
   category?: string[] | null;
 
   @Field(() => [String], { nullable: true })
-  tags?: string | null;
+  tags?: string[] | null;
 
   @Field()
   author: string;
@@ -58,10 +58,10 @@ class BookCreateInput {
   isbn: string;
 
   @Field(() => String, { nullable: true })
-  Rating: string | null;
+  Rating?: string | null;
 
-  @Field({ nullable: true })
-  BookStatus: string | null;
+  @Field(() => String, { nullable: true })
+  BookStatus?: string | null;
 
   @Field({ nullable: true })
   cover_img_url: string | null;
@@ -158,7 +158,7 @@ class BookUpdateInput {
 export class BookResolver {
   constructor(@Inject(PrismaService) private prismaService: PrismaService) {}
 
-  @ResolveField()
+  @ResolveField(() => [Category])
   async category(@Root() book: Book): Promise<Category[] | null> {
     return this.prismaService.book
       .findUnique({
@@ -169,21 +169,48 @@ export class BookResolver {
       .category();
   }
 
+  @ResolveField(() => BookTypes)
+  async BookType(@Root() book: Book): Promise<BookTypes | null> {
+    return this.prismaService.book
+      .findUnique({
+        where: {
+          id: book.id,
+        },
+      })
+      .BookType();
+  }
+
+  @ResolveField(() => Rating)
+  async rating(@Root() book: Book): Promise<Rating | null> {
+    return this.prismaService.book
+      .findUnique({
+        where: {
+          id: book.id,
+        },
+      })
+      .Rating();
+  }
+
+  @ResolveField(() => BookStatus)
+  async bookStatus(@Root() book: Book): Promise<BookStatus | null> {
+    return this.prismaService.book
+      .findUnique({
+        where: {
+          id: book.id,
+        },
+      })
+      .BookStatus();
+  }
+
   @Query(() => [Book], { description: `Get all books` })
-  async allBooks(@Context() ctx) {
+  async books(@Context() ctx) {
     return this.prismaService.book.findMany();
   }
 
   @Query(() => Book, { description: `Get a book by id` })
-  async bookById(@Args('id') id: string) {
+  async getBook(@Args('id') id: string) {
     return await this.prismaService.book.findUnique({
       where: { id },
-      include: {
-        Type: true,
-        category: true,
-        Rating: true,
-        BookStatus: true,
-      },
     });
   }
 
@@ -195,7 +222,7 @@ export class BookResolver {
       },
     });
     if (findDuplicated) throw new Error('Book already exists');
-    const { Type, category, Rating, BookStatus, ...body } = data;
+    const { type, category, Rating, BookStatus, ...body } = data;
     return await this.prismaService.book.create({
       data: {
         ...body,
