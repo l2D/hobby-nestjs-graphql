@@ -209,9 +209,11 @@ export class BookResolver {
 
   @Query(() => Book, { description: `Get a book by id` })
   async getBook(@Args('id') id: string) {
-    return await this.prismaService.book.findUnique({
+    const findResult = await this.prismaService.book.findUnique({
       where: { id },
     });
+    if (!findResult) throw new Error('Book not found');
+    return findResult;
   }
 
   @Mutation(() => Book, { description: `Create a new book` })
