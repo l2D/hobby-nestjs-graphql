@@ -116,6 +116,9 @@ type Mutation {
   """Update a book"""
   updateBook(data: BookUpdateInput!, id: String!): Book!
 
+  """Delete a book"""
+  deleteBook(id: String!): Book!
+
   """Create a new category"""
   createCategory(data: CategoryInput!): Category!
 
@@ -127,6 +130,9 @@ type Mutation {
 
   """Update a rating"""
   updateRating(data: RatingInput!, id: Float!): Rating!
+
+  """Delete a rating"""
+  deleteRating(id: Float!): Rating!
 
   """Create a new book type"""
   createBookType(data: BookTypesInput!): BookTypes!

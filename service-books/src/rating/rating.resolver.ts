@@ -62,4 +62,14 @@ export class RatingResolver {
       data,
     });
   }
+
+  @Mutation(() => Rating, { description: `Delete a rating` })
+  async deleteRating(@Args('id') id: number) {
+    const parsedId = parseInt(id.toString(), 10);
+    console.log('id :>> ', id);
+    console.log(`parsedId :>> `, parsedId);
+    return await this.prismaService.rating.delete({
+      where: { id: parsedId },
+    });
+  }
 }

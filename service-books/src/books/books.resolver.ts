@@ -242,4 +242,11 @@ export class BookResolver {
       data,
     });
   }
+
+  @Mutation(() => Book, { description: `Delete a book` })
+  async deleteBook(@Args('id') id: string) {
+    return await this.prismaService.book.delete({
+      where: { id },
+    });
+  }
 }
