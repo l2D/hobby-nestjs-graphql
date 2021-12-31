@@ -48,7 +48,7 @@
   ],
   "Books": [
     {
-      "Type": {
+      "BookType": {
         "connect": {
           "type": "Fiction"
         }
@@ -84,7 +84,7 @@
       "published_at": "2021-12-19T14:51:08Z"
     },
     {
-      "Type": {
+      "BookType": {
         "connect": {
           "type": "Fiction"
         }
@@ -120,7 +120,7 @@
       "published_at": "2021-12-19T14:51:08Z"
     },
     {
-      "Type": {
+      "BookType": {
         "connect": {
           "type": "IT"
         }
