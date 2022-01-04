@@ -1,6 +1,6 @@
 <div align="center">
 	<a href="mailto:rawipas.chisamut@gmail.com"><img src="https://www.svgrepo.com/show/275536/cat.svg" style="width: 180px; height: 180px;"/></a>
-	<h1> Test project for interview </h1>
+	<h1> Hobby project #1 </h1>
 	<a href="#">
 		<img src="https://img.shields.io/badge/nestjs-%23E0234E.png?style=for-the-badge&logo=nestjs&logoColor=white" />
 	</a>
