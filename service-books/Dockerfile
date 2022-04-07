@@ -1,4 +1,4 @@
-FROM node:16.13.1-slim AS development
+FROM node:gallium-slim AS development
 
 RUN apt-get update
 
@@ -18,7 +18,7 @@ RUN npx prisma generate
 
 RUN npm run build
 
-FROM node:16.13.1-slim as production
+FROM node:gallium-slim as production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
