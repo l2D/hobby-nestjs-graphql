@@ -34,7 +34,7 @@
     "graphql": "^15.8.0",
     "graphql-tools": "^8.2.10",
     "graphql-type-json": "^0.3.2",
-    "nestjs-pino": "^2.5.2",
+    "nestjs-pino": "^2.6.0",
     "pino-http": "^6.6.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
